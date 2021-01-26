@@ -1,0 +1,18 @@
+﻿La génération a démarré 26/01/2021 17:07:09.
+Projet "C:\Documents and Settings\Administrateur\mes documents\visual studio 2010\Projects\obfusware\obfusware\obfusware.vcxproj" sur le nœud 2 (build cible(s)).
+InitializeBuildStatus:
+  Mise à jour de l'horodatage "Debug\obfusware.unsuccessfulbuild".
+ClCompile:
+  Toutes les sorties sont à jour.
+  C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\obfusware.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt obfusware.cpp
+  obfusware.cpp
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(10): error C2414: nombre d'opérandes non conforme
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(10): error C2400: erreur de syntaxe d'assembleur inline dans 'premier opérande' ; trouvé ':'
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(12): error C2400: erreur de syntaxe d'assembleur inline dans 'opcode' ; trouvé ':'
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(12): warning C4405: 'mov' : cet identificateur est un mot réservé
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(20): warning C4405: 'loop' : cet identificateur est un mot réservé
+Génération du projet "C:\Documents and Settings\Administrateur\mes documents\visual studio 2010\Projects\obfusware\obfusware\obfusware.vcxproj" terminée (build cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:00.17
