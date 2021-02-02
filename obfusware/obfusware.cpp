@@ -134,8 +134,34 @@ UINT GetNumScrollLines(void){
    return ucNumLines;
 }
 
+void ccpuid(int CPUInfo[4], int InfoType){
+ __asm {
+     mov    esi, CPUInfo
+     mov    eax, InfoType
+     xor    ecx, ecx  
+     cpuid  
+     mov    dword ptr [esi +  0], eax
+     mov    dword ptr [esi +  4], ebx  
+     mov    dword ptr [esi +  8], ecx  
+     mov    dword ptr [esi + 12], edx  
+  }
+}
+
+bool isGuestOSVM(){
+	unsigned int cpuInfo[4];
+    ccpuid((int*)cpuInfo,1);
+    return ((cpuInfo[2] >> 31) & 1) == 1;
+}
 
 int _tmain(int argc, _TCHAR* argv[]){
+
+	/**********************************************/
+	/* Condition : Ne doit pas être dans une VM   */
+	if (! isGuestOSVM()){
+		printf("Le système n'est pas une VM : OK\n");
+	}else{
+		printf("Le système est une VM : Not OK\n");
+	}
 
 	/**********************************************/
 	/* Condition : La VM doit tourner depuis      */
