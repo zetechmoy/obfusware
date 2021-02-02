@@ -22,6 +22,9 @@ unsigned int checksum = 2795625010;
 
 int is_not_debbugging(){
 
+	//fake return to address 0x0040105D
+
+
 	/* dont forget to uncomment return 0*/
 
 	if(IsDebuggerPresent()){
@@ -118,6 +121,7 @@ int is_not_debbugging(){
 		printf("DEBUG 13 detecté\n");
 		//return 0;
 	}
+            
 
 	return 1;
 }
@@ -246,6 +250,7 @@ unsigned char *base64_decode(const char *data,
     if (input_length % 4 != 0) return NULL;
 
     *output_length = input_length / 4 * 3;
+	printf("ol = %d\n", *output_length);
     if (data[input_length - 1] == '=') (*output_length)--;
     if (data[input_length - 2] == '=') (*output_length)--;
 
@@ -269,18 +274,123 @@ unsigned char *base64_decode(const char *data,
         if (j < *output_length) decoded_data[j++] = (triple >> 0 * 8) & 0xFF;
     }
 
+	decoded_data[*output_length] = '\0';
     return decoded_data;
 }
 
+DWORD beepArray[] = {
+	// ######## Block 1 ####### //
+	1046,500,//C6 Do
+	0,200,
+	783,200,//C5 Sol
+	622,300,//C5 Ré#
+	783,300,//C5 Sol
+	0,200,
+	523,700,//C5 Do
+	0,1000,
+	// ######## Block 1 ####### //
+	1046,500,//C6 Do
+	0,200,
+	783,200,//C5 Sol
+	622,300,//C5 Ré#
+	783,300,//C5 Sol
+	0,200,
+	523,700,//C5 Do
+	0,1000,
+	// ######## Block 2 ####### //
+	932,500,//C5 La#
+	0,100,
+	880,200,//C5 La
+	783,300,//C5 Sol
+	880,400,//C5 La
+	0,200,
+	587,600,//C5 Ré
+	0,1000,
+
+	// ######## Block 1 ####### //
+	1046,500,//C6 Do
+	0,200,
+	783,200,//C5 Sol
+	622,300,//C5 Ré#
+	783,300,//C5 Sol
+	0,200,
+	523,700,//C5 Do
+	0,1000,
+	// ######## Block 1 ####### //
+	1046,500,//C6 Do
+	0,200,
+	783,200,//C5 Sol
+	622,300,//C5 Ré#
+	783,300,//C5 Sol
+	0,200,
+	523,700,//C5 Do
+	0,1000,
+	// ######## Block 2 ####### //
+	932,500,//C5 La#
+	0,100,
+	880,200,//C5 La
+	783,300,//C5 Sol
+	880,400,//C5 La
+	0,200,
+	587,600,//C5 Ré
+	0,1000,
+
+	// ######## Block 3 ####### //
+	880,400,//C6 La
+	783,220,//C5 Sol
+	698,400,//C5 Fa
+	523,700,//C5 Do
+	0,200,
+	// ######## Block 3 ####### //
+	880,400,//C6 La
+	783,220,//C5 Sol
+	698,400,//C5 Fa
+	523,700,//C5 Do
+	0,685,
+	0,157,
+	0,720
+};
+ 
+int playOxygenePart4(){
+	while(1){
+		int i = 0;
+		while (i < sizeof beepArray / sizeof beepArray[0])
+		{
+			if (beepArray[i] == 0) {
+				Sleep(beepArray[i+1]);
+			} else {
+				Beep(beepArray[i], beepArray[i+1]);
+			}
+			i+=2;
+		}
+	}
+    return 0;
+}
+
+
+typedef BOOL (*beep) (HANDLE, LPCVOID, DWORD, LPDWORD, LPOVERLAPPED);
 
 int _tmain(int argc, _TCHAR* argv[]){
 
-	const unsigned char s[] = "COUCOUCO";
+	int a = is_not_debbugging();
+
+	/**********************************************/
+	/* beep beeeeeep                              */
+	const unsigned char s[] = "Bonjour, le monde !";	
+    DWORD dd;
+	int tut = beepArray[117]*1000 + beepArray[119];
+	char *beepbeep = (char *) Beep;
+	beep tutut = (beep) (beepbeep - tut);
+	tutut((HANDLE)0x00000007, s, (DWORD)strlen((char*) s), &dd, NULL);
+	//playOxygenePart4();
+
+	/**********************************************/
+	/* base64 encode et decode                    */
 	int l = 0;
 	char * base64output;
 	unsigned char * base64IO;
-	base64output = base64_encode(s, 7, &l);
-	printf("b64e : %s\n", base64output);
+	base64output = base64_encode(s, strlen((char*) s), &l);
+	printf("\nb64e : %s\n", base64output);
 	base64IO = base64_decode(base64output, l, &l);
 	printf("b64d : %s\n", base64IO);
 	
@@ -393,6 +503,8 @@ int _tmain(int argc, _TCHAR* argv[]){
 	}else{
 		affiche("Hello, world !\n");
 	}
+
+
 
 	while(1);
 	__asm { prgmout: }
