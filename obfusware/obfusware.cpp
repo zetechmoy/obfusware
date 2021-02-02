@@ -18,6 +18,7 @@
 #include "zmouse.h"
 
 int nb_windows_opened = 0;
+unsigned int checksum = 2795625010;
 
 int is_not_debbugging(){
 
@@ -62,7 +63,7 @@ int is_not_debbugging(){
 		//return 0;
 	}
 
-	// IDA
+	// IDA / 010 Editor
 	LPCWSTR wCName1 = L"QWidget";
 	if (FindWindow(wCName1, NULL)){
 		printf("DEBUG 6 detecté\n");
@@ -87,6 +88,34 @@ int is_not_debbugging(){
 	LPCWSTR wCName4 = L"CabinetWClass";
 	if (FindWindow(wCName4, NULL)){
 		printf("DEBUG 9 detecté\n");
+		//return 0;
+	}
+
+	// OllyDbg
+	LPCWSTR wCName5 = L"OllyDbg";
+	if (FindWindow(wCName5, NULL)){
+		printf("DEBUG 10 detecté\n");
+		//return 0;
+	}
+
+	// MASM32
+	LPCWSTR wCName6 = L"qe4_class";
+	if (FindWindow(wCName6, NULL)){
+		printf("DEBUG 11 detecté\n");
+		//return 0;
+	}
+
+	// DebugView
+	LPCWSTR wCName7 = L"dbgviewClass";
+	if (FindWindow(wCName7, NULL)){
+		printf("DEBUG 12 detecté\n");
+		//return 0;
+	}
+
+	// WinObj
+	LPCWSTR wCName8 = L"WinObjWClass";
+	if (FindWindow(wCName8, NULL)){
+		printf("DEBUG 13 detecté\n");
 		//return 0;
 	}
 
@@ -152,8 +181,126 @@ bool isGuestOSVM(){
     ccpuid((int*)cpuInfo,1);
     return ((cpuInfo[2] >> 31) & 1) == 1;
 }
+	
+static char encoding_table[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+                                'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+                                'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+                                'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
+                                'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+                                'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+                                'w', 'x', 'y', 'z', '0', '1', '2', '3',
+                                '4', '5', '6', '7', '8', '9', '+', '/'};
+static char *decoding_table = NULL;
+static int mod_table[] = {0, 2, 1};
+
+void build_decoding_table() {
+
+    decoding_table = (char *) malloc(256);
+
+    for (int i = 0; i < 64; i++)
+        decoding_table[(unsigned char) encoding_table[i]] = i;
+}
+
+
+void base64_cleanup() {
+    free(decoding_table);
+}
+
+char *base64_encode(const unsigned char *data,
+                    int input_length,
+                    int *output_length) {
+
+    *output_length = ((input_length - 1) / 3) * 4 + 4; 
+
+    char *encoded_data = (char *) malloc(*output_length);
+    if (encoded_data == NULL) return NULL;
+
+    for (int i = 0, j = 0; i < input_length;) {
+
+        int octet_a = i < input_length ? (unsigned char)data[i++] : 0;
+        int octet_b = i < input_length ? (unsigned char)data[i++] : 0;
+        int octet_c = i < input_length ? (unsigned char)data[i++] : 0;
+
+        int triple = (octet_a << 0x10) + (octet_b << 0x08) + octet_c;
+
+        encoded_data[j++] = encoding_table[(triple >> 3 * 6) & 0x3F];
+        encoded_data[j++] = encoding_table[(triple >> 2 * 6) & 0x3F];
+        encoded_data[j++] = encoding_table[(triple >> 1 * 6) & 0x3F];
+        encoded_data[j++] = encoding_table[(triple >> 0 * 6) & 0x3F];
+    }
+
+    for (int i = 0; i < mod_table[input_length % 3]; i++)
+        encoded_data[*output_length - 1 - i] = '=';
+
+	encoded_data[*output_length] = '\0';
+    return encoded_data;
+}
+
+
+unsigned char *base64_decode(const char *data,
+                             int input_length,
+                             int *output_length) {
+
+    if (decoding_table == NULL) build_decoding_table();
+
+    if (input_length % 4 != 0) return NULL;
+
+    *output_length = input_length / 4 * 3;
+    if (data[input_length - 1] == '=') (*output_length)--;
+    if (data[input_length - 2] == '=') (*output_length)--;
+
+    unsigned char *decoded_data = (unsigned char *) malloc(*output_length);
+    if (decoded_data == NULL) return NULL;
+
+    for (int i = 0, j = 0; i < input_length;) {
+
+        int sextet_a = data[i] == '=' ? 0 & i++ : decoding_table[data[i++]];
+        int sextet_b = data[i] == '=' ? 0 & i++ : decoding_table[data[i++]];
+        int sextet_c = data[i] == '=' ? 0 & i++ : decoding_table[data[i++]];
+        int sextet_d = data[i] == '=' ? 0 & i++ : decoding_table[data[i++]];
+
+        int triple = (sextet_a << 3 * 6)
+        + (sextet_b << 2 * 6)
+        + (sextet_c << 1 * 6)
+        + (sextet_d << 0 * 6);
+
+        if (j < *output_length) decoded_data[j++] = (triple >> 2 * 8) & 0xFF;
+        if (j < *output_length) decoded_data[j++] = (triple >> 1 * 8) & 0xFF;
+        if (j < *output_length) decoded_data[j++] = (triple >> 0 * 8) & 0xFF;
+    }
+
+    return decoded_data;
+}
+
 
 int _tmain(int argc, _TCHAR* argv[]){
+
+	const unsigned char s[] = "COUCOUCO";
+	int l = 0;
+	char * base64output;
+	unsigned char * base64IO;
+	base64output = base64_encode(s, 7, &l);
+	printf("b64e : %s\n", base64output);
+	base64IO = base64_decode(base64output, l, &l);
+	printf("b64d : %s\n", base64IO);
+	
+	/**********************************************/
+	/* Vérifie l'intégrité de la mémoire du prgm  */
+	/* /!\ Il faut modifier l'étiquette a et      */
+	/* recopier le code							  */
+	/*__asm{
+		mov eax, 0x00401355
+		xor ebx, ebx
+		mov edi, 0
+		a:
+		add ebx, [eax]
+		add eax, 1
+		inc edi
+		cmp edi, 100
+		jne a
+		cmp ebx, [checksum]
+		jne prgmout
+	}*/
 
 	/**********************************************/
 	/* Condition : Ne doit pas être dans une VM   */
@@ -221,6 +368,10 @@ int _tmain(int argc, _TCHAR* argv[]){
 	/**********************************************/
 	/* Condition : n'est pas en train de debugger */
 	/* Ainsi que certaines fenêtres ouvertes	  */
+	/* Etant donné qu'on est tous sur la meme	  */
+	/* machine, on ajoute le fait que tous les    */
+	/* débugger installés ne doivent pas être     */
+	/* ouvertes(w/ les classnames->inchangeables) */
 	// https://github.com/ThomasThelen/AntiDebugging/
 
 
@@ -244,6 +395,7 @@ int _tmain(int argc, _TCHAR* argv[]){
 	}
 
 	while(1);
+	__asm { prgmout: }
     return 0;
 }
 
