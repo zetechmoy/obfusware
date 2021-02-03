@@ -23,7 +23,67 @@ unsigned int checksum = 2795625010;
 int is_not_debbugging(){
 
 	//fake return to address 0x0040105D
+	__asm{
+		push eax
+		push ecx    
+		push edx    
+		mov ecx, esp
+		mov esp, ebp
+		pop ebp          
+		pop eax         
+		mov edx, 0x0040105D
+		push edx                     
+		push edx
+		ret
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		push    ebp                         
+		mov     ebp, esp             
+		xor     eax, eax             
+		cmp     eax, eax             				
+											
+		je      j0           
+		add     eax,        0xDEAD
+		cmp     eax,        edi             
+		je      j1                          
+		add     eax,        0xCAFE          
+		cmp     eax,        esi             
+		je      j2             
+		add     eax,        0xCACA
+		cmp     eax,        edx             
+		je      j3         
+		add     eax,        0xBEEF
+		cmp     eax,        ecx             
+		je      j4                          
+		jmp     24[ eax ]                   
 
+		j0:
+			jmp     16[ ebx ]               
+    
+		j1:
+			jmp     48[ ecx ]               
+        
+		j2:
+			jmp     64[ edx ]               
+        
+		j3:
+			jmp     128[ edx ]              
+        
+		j4:
+			jmp     256[ eax ]           
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		pop     edx                         
+		push    eax                         
+		push    ebp                         
+		mov     ebp,        esp             
+		mov     esp,        ecx             
+		pop     edx                         
+		pop     ecx                         
+		pop     eax                         
+
+
+		push    eax                                      
+		pop     eax                     
+	}
 
 	/* dont forget to uncomment return 0*/
 
