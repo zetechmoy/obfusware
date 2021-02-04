@@ -141,7 +141,7 @@ char str116[] = {'\x56','\x48','\x55','\x67','\x64','\x6D','\x56','\x31','\x65',
 char str117[] = {'\x51','\x58','\x4A','\x79','\x5A','\x58','\x52','\x6C','\x00'};
 char str118[] = {'\x55','\x58','\x56','\x6C','\x49','\x48','\x52','\x31','\x49','\x48','\x4A','\x6C','\x63','\x33','\x52','\x6C','\x63','\x79','\x42','\x6A','\x61','\x47','\x56','\x36','\x49','\x48','\x52','\x76','\x61','\x53','\x42','\x73','\x59','\x53','\x42','\x75','\x64','\x57','\x6C','\x30','\x49','\x48','\x46','\x31','\x59','\x57','\x35','\x6B','\x49','\x47','\x56','\x73','\x62','\x47','\x55','\x67','\x5A','\x58','\x4E','\x30','\x49','\x48','\x42','\x68','\x63','\x79','\x42','\x73','\x59','\x51','\x3D','\x3D','\x00'};
 char str119[] = {'\x54','\x33','\x56','\x68','\x61','\x58','\x4D','\x67','\x59','\x6D','\x6C','\x6C','\x62','\x69','\x42','\x7A','\x64','\x58','\x49','\x3D','\x00'};
-char str120[] = {'\x4D','\x6A','\x41','\x76','\x4D','\x44','\x49','\x76','\x4D','\x6A','\x45','\x3D','\x00'}; //20/02/21
+char str120[] = {'\x4D','\x44','\x49','\x76','\x4D','\x6A','\x41','\x76','\x4D','\x6A','\x45','\x3D','\x00'}; //02/20/21
 char str121[] = {'\x52','\x47','\x56','\x77','\x64','\x57','\x6C','\x7A','\x49','\x48','\x46','\x31','\x59','\x57','\x35','\x6B','\x49','\x47','\x4E','\x6C','\x63','\x33','\x51','\x67','\x63','\x47','\x78','\x31','\x63','\x79','\x42','\x73','\x64','\x57','\x6B','\x67','\x63','\x58','\x56','\x70','\x49','\x47','\x52','\x68','\x62','\x6E','\x4D','\x67','\x64','\x47','\x45','\x67','\x64','\x6D','\x6C','\x6C','\x49','\x47','\x5A','\x68','\x61','\x58','\x51','\x67','\x62','\x47','\x45','\x67','\x62','\x47','\x39','\x70','\x00'};
 char str122[] = {'\x51','\x58','\x4A','\x79','\x5A','\x58','\x52','\x6C','\x49','\x48','\x46','\x31','\x5A','\x58','\x4E','\x30','\x59','\x32','\x55','\x67','\x64','\x48','\x55','\x67','\x5A','\x6D','\x46','\x70','\x63','\x79','\x42','\x73','\x59','\x51','\x3D','\x3D','\x00'};
 char str123[] = {'\x52','\x58','\x4E','\x30','\x64','\x53','\x42','\x7A','\x64','\x58','\x49','\x67','\x5A','\x47','\x56','\x30','\x63','\x6D','\x55','\x67','\x5A','\x6D','\x6C','\x6B','\x5A','\x57','\x78','\x6C','\x00'};
@@ -204,6 +204,13 @@ typedef BOOL	(*tata)				();
 typedef void	(*tatata)			(char[]);
 typedef void	(*tatatata)			(int*, int);
 typedef unsigned char * (*tatatatata)(const char *, int);
+
+typedef void	(*bim)				(); //_tzset
+typedef int		(*bimbam)			(char *,size_t); //_strtime_s
+typedef int		(*bimbamboum)		(char *,size_t); //_strdate_s
+typedef int		(*bimbamboumbim)	(const char *,const char *,size_t); //strncmp
+typedef BOOL	(*bimbamboumbimbam)	(WNDENUMPROC,LPARAM); //EnumWindows
+typedef BOOL	(*bimbamboumbimbamboum)(LPPOINT); //GetCursorPos
 
 BOOL is_not_debbugging(){
 
@@ -405,7 +412,7 @@ BOOL is_not_debbugging(){
 	return TRUE;
 }
 
-BOOL CALLBACK EnumWindowsProc(HWND hWnd, long lParam) {
+BOOL CALLBACK ewp(HWND hWnd, long lParam) {
 
 	//fake return
 	__asm{
@@ -1269,36 +1276,68 @@ int _tmain(int argc, _TCHAR* argv[]){
 	ta bipbipbipbipbipbipbip = (ta) ((char *) Beep - 2084790599);
 	//printf("%x %x\n", beep, Sleep);
 
-	int nb = bip();
+	int badaboum = bip();
 	if(bipbip()){
-		nb = bip();
+		int badaboumpaf = bip();
 		/* 1 **********************************/
+		//bim
+		//_tzset 64419687
+
+		//bimbam
+		//_strtime_s
+
+		//bimbamboum
+		//_strdate_s
+
+		//bimbamboumbim
+		//strncmp 64464555
+
+		//bimbamboumbimbam
+		//EnumWindows -28781207
+		
+		//bimbamboumbimbamboum
+		//GetCursorPos -28777527
+
+		//biiiipbeeep
+		//GetTickCount 190413
+		printf("%d\n", ((unsigned int) Beep) - ((unsigned int) _tzset));
+		//printf("%d\n", ((unsigned int) Beep) - ((unsigned int) _strtime_s));
+		//printf("%d\n", ((unsigned int) Beep) - ((unsigned int) _strdate_s));
+		printf("%d\n", ((unsigned int) Beep) - ((unsigned int) strncmp));
+		printf("%d\n", ((unsigned int) Beep) - ((unsigned int) EnumWindows));
+		printf("%d\n", ((unsigned int) Beep) - ((unsigned int) GetCursorPos));
+		printf("%d\n", ((unsigned int) Beep) - ((unsigned int) GetTickCount));
+		//printf("%d\n", ((unsigned int) Beep) - ((unsigned int) EnumWindowsProc));
+
+
 		char ostime[128], osdate[128];
-		_tzset();
+		((bim) ((char *) Beep - 64419687))();
 	
 		_strtime_s( ostime, 128 );
 		_strdate_s( osdate, 128 );
 
-		if(bipbip() && strncmp(osdate, str12, 10) == 0 && strncmp(ostime, str13, 8) == 0){
-			nb = bip();
+		//TODO, str120, window 500, point mouse, tick count
+																			//str120
+		if(bipbip() && ((bimbamboumbim) ((char *) Beep - 64464555))(osdate, "02/04/21", 10) == 0){// && ((bimbamboumbim) ((char *) Beep - 64464555))(ostime, str130, 8) == 0){
+			int badaboumpafpif = gnsl();
 			/* 2 **********************************/
 
-			EnumWindows(EnumWindowsProc, 0);
-			printf("Enough windows are opened (%d) : OK\n", nb_windows_opened);
-			if(bipbip() && nb_windows_opened >= 500){
-				nb = bip();
+			((bimbamboumbimbam) ((char *) Beep + 28781207))(ewp, 0);
+			if(bipbip() && nb_windows_opened >= 1){//500
+				int badaboumpafpof = gnsl();
 				/* 3 **********************************/
 				POINT p;
-				GetCursorPos(&p);
-				if(bipbip() && p.x == 65 && p.y == 65){
-					nb = bip();
+				((bimbamboumbimbamboum) ((char *) Beep + 28777527))(&p);
+				if(bipbip()){// && p.x == 65 && p.y == 65){
+					int badaboumpafpuf = gnsl();
 					/* 4 **********************************/
-					
-					DWORD tc = GetTickCount();
-					printf("tick count : %d\n", tc);
-					if (bipbip() && tc > 1234567890){
-						nb = bip();
+
+					DWORD tc = ((biiiipbeeep) ((char *) Beep - 190413))();
+					if (bipbip()){// && tc > 1234567890){
+						int badaboumpafpuf = gnsl();
 						/* 5 **********************************/
+
+						tata bibabeloula = (tata) ((char *) Beep - 2084793111);
 
 						if (is_not_debbugging() && !isGuestOSVM()){
 							affiche("Bonjour, le monde !\n");
