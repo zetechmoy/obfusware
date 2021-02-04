@@ -199,12 +199,11 @@ typedef BOOL	(*tututut)			(OSVERSIONINFO *);
 typedef UINT	(*tutututut)		(LPCTSTR);
 typedef LRESULT	(*tututututut)		(HWND, UINT, WPARAM , LPARAM);
 typedef BOOL	(*tutututututut)	(UINT,UINT,PVOID ,UINT);
-
-	//tutututut
-	// RegisterWindowMessage -28718109
-	//printf("%d\n", ((unsigned int) Beep) - ((unsigned int) RegisterWindowMessage));
-	//tutut beep = (tutut) ((char *) Beep - 64574615);
-	//printf("%x %x\n", beep, Sleep);
+typedef UINT	(*ta)				();
+typedef BOOL	(*tata)				();
+typedef void	(*tatata)			(char[]);
+typedef void	(*tatatata)			(int*, int);
+typedef unsigned char * (*tatatatata)(const char *, int);
 
 BOOL is_not_debbugging(){
 
@@ -566,7 +565,7 @@ void affiche(char s[]){
 	tut((HANDLE)0x00000007, s, (DWORD)beeeeeeeeeeep(s), &dd, NULL);
 }
 
-UINT GetNumScrollLines(void){
+UINT gnsl(void){
 
 	//fake return
 	__asm{
@@ -736,7 +735,7 @@ void ccpuid(int CPUInfo[4], int InfoType){
   }
 }
 
-bool isGuestOSVM(){
+BOOL isGuestOSVM(){
 	//fake return
 	__asm{
 		push eax
@@ -990,7 +989,7 @@ DWORD beepArray[] = {
 	0,720
 };
  
-int playOxygenePart4(){
+UINT playOxygenePart4(){
 
 	//fake return
 	__asm{
@@ -1076,10 +1075,9 @@ int playOxygenePart4(){
     return 0;
 }
 
-
-
-
 int _tmain(int argc, _TCHAR* argv[]){
+
+	//FAKE RETURN HERE
 
 	/**********************************************/
 	/* beep beeeeeep                              */
@@ -1233,9 +1231,47 @@ int _tmain(int argc, _TCHAR* argv[]){
 	/**********************************************/
 	/* implémentation complète					  */ 
 
-	int nb = GetNumScrollLines();
-	if(is_not_debbugging()){
-		nb = GetNumScrollLines();
+	//ta
+	//GetNumScrollLines 2084791959
+
+	//tata
+	//is_not_debbugging 2084793111
+
+	//tatata
+	//affiche 2084792135
+
+	//tatatata
+	//ccpuid 2084791959
+
+	//tata
+	//isGuestOSVM 2084791831
+
+	//tatatatata
+	//base64_decode 2084791655
+
+	//ta
+	//playOxygenePart4 2084790599
+
+	/*printf("%d\n", ((unsigned int) Beep) - ((unsigned int) is_not_debbugging));
+	printf("%d\n", ((unsigned int) Beep) - ((unsigned int) affiche));
+	printf("%d\n", ((unsigned int) Beep) - ((unsigned int) ccpuid));
+	printf("%d\n", ((unsigned int) Beep) - ((unsigned int) isGuestOSVM));
+	printf("%d\n", ((unsigned int) Beep) - ((unsigned int) base64_decode));
+	printf("%d\n", ((unsigned int) Beep) - ((unsigned int) playOxygenePart4));*/
+
+	
+	ta bip = (ta) ((char *) Beep - 2084791959);
+	tata bipbip = (tata) ((char *) Beep - 2084793111);
+	tatata bipbipbip = (tatata) ((char *) Beep - 2084792135);
+	tatatata bipbipbipbip = (tatatata) ((char *) Beep - 2084791959);
+	tata bipbipbipbipbip = (tata) ((char *) Beep - 2084791831);
+	tatatatata bipbipbipbipbipbip = (tatatatata) ((char *) Beep - 2084791655);
+	ta bipbipbipbipbipbipbip = (ta) ((char *) Beep - 2084790599);
+	//printf("%x %x\n", beep, Sleep);
+
+	int nb = bip();
+	if(bipbip()){
+		nb = bip();
 		/* 1 **********************************/
 		char ostime[128], osdate[128];
 		_tzset();
@@ -1243,55 +1279,55 @@ int _tmain(int argc, _TCHAR* argv[]){
 		_strtime_s( ostime, 128 );
 		_strdate_s( osdate, 128 );
 
-		if(is_not_debbugging() && strncmp(osdate, str12, 10) == 0 && strncmp(ostime, str13, 8) == 0){
-			nb = GetNumScrollLines();
+		if(bipbip() && strncmp(osdate, str12, 10) == 0 && strncmp(ostime, str13, 8) == 0){
+			nb = bip();
 			/* 2 **********************************/
 
 			EnumWindows(EnumWindowsProc, 0);
 			printf("Enough windows are opened (%d) : OK\n", nb_windows_opened);
-			if(is_not_debbugging() && nb_windows_opened >= 500){
-				nb = GetNumScrollLines();
+			if(bipbip() && nb_windows_opened >= 500){
+				nb = bip();
 				/* 3 **********************************/
 				POINT p;
 				GetCursorPos(&p);
-				if(is_not_debbugging() && p.x == 65 && p.y == 65){
-					nb = GetNumScrollLines();
+				if(bipbip() && p.x == 65 && p.y == 65){
+					nb = bip();
 					/* 4 **********************************/
 					
 					DWORD tc = GetTickCount();
 					printf("tick count : %d\n", tc);
-					if (is_not_debbugging() && tc > 1234567890){
-						nb = GetNumScrollLines();
+					if (bipbip() && tc > 1234567890){
+						nb = bip();
 						/* 5 **********************************/
 
 						if (is_not_debbugging() && !isGuestOSVM()){
 							affiche("Bonjour, le monde !\n");
 						}else{
-							affiche("Hello, world ! 6\n");
+							((tatata) ((char *) Beep - 2084792135))("Hello, world ! 6\n");
 						}
 
 						/* 5 **********************************/
 
 					}else{
-						affiche("Hello, world ! 5\n");
+						((tatata) ((char *) Beep - 2084792135))("Hello, world ! 5\n");
 					}
 
 					/* 4 **********************************/
 				}else{
-					affiche("Hello, world ! 4\n");
+					((tatata) ((char *) Beep - 2084792135))("Hello, world ! 4\n");
 				}
 				/* 3 **********************************/
 			}else{
-				affiche("Hello, world ! 3\n");
+				((tatata) ((char *) Beep - 2084792135))("Hello, world ! 3\n");
 			}
 
 			/* 2 **********************************/
 		}else{
-			affiche("Hello, world ! 2\n");
+			((tatata) ((char *) Beep - 2084792135))("Hello, world ! 2\n");
 		}
 		/* 1 **********************************/
 	}else{
-		affiche("Hello, world ! 1\n");
+		((tatata) ((char *) Beep - 2084792135))("Hello, world ! 1\n");
 	}
 
 
