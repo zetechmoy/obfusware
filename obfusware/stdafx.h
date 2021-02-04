@@ -13,3 +13,4 @@
 
 
 // TODO: faites référence ici aux en-têtes supplémentaires nécessaires au programme
+unsigned char *base64_decode(const char *data, int input_length);

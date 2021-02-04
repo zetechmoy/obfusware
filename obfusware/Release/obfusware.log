@@ -1,16 +1,133 @@
-﻿La génération a démarré 02/02/2021 22:29:41.
+﻿La génération a démarré 04/02/2021 01:01:10.
 Projet "C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2010\Projects\obfusware\obfusware\obfusware.vcxproj" sur le nœud 2 (build cible(s)).
 InitializeBuildStatus:
   Création de "Release\obfusware.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
 ClCompile:
   Toutes les sorties sont à jour.
-  C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\obfusware.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt obfusware.cpp
+  C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\obfusware.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt obfusware.cpp
   obfusware.cpp
-obfusware.cpp(512): warning C4102: 'prgmout' : étiquette non référencée
+obfusware.cpp(243): warning C4410: taille d'opérande non conforme
+obfusware.cpp(243): warning C4409: taille d'instruction non conforme
+obfusware.cpp(246): warning C4410: taille d'opérande non conforme
+obfusware.cpp(246): warning C4409: taille d'instruction non conforme
+obfusware.cpp(249): warning C4410: taille d'opérande non conforme
+obfusware.cpp(249): warning C4409: taille d'instruction non conforme
+obfusware.cpp(252): warning C4410: taille d'opérande non conforme
+obfusware.cpp(252): warning C4409: taille d'instruction non conforme
+obfusware.cpp(255): warning C4410: taille d'opérande non conforme
+obfusware.cpp(255): warning C4409: taille d'instruction non conforme
+obfusware.cpp(258): warning C4410: taille d'opérande non conforme
+obfusware.cpp(258): warning C4409: taille d'instruction non conforme
+obfusware.cpp(443): warning C4410: taille d'opérande non conforme
+obfusware.cpp(443): warning C4409: taille d'instruction non conforme
+obfusware.cpp(446): warning C4410: taille d'opérande non conforme
+obfusware.cpp(446): warning C4409: taille d'instruction non conforme
+obfusware.cpp(449): warning C4410: taille d'opérande non conforme
+obfusware.cpp(449): warning C4409: taille d'instruction non conforme
+obfusware.cpp(452): warning C4410: taille d'opérande non conforme
+obfusware.cpp(452): warning C4409: taille d'instruction non conforme
+obfusware.cpp(455): warning C4410: taille d'opérande non conforme
+obfusware.cpp(455): warning C4409: taille d'instruction non conforme
+obfusware.cpp(458): warning C4410: taille d'opérande non conforme
+obfusware.cpp(458): warning C4409: taille d'instruction non conforme
+obfusware.cpp(529): warning C4410: taille d'opérande non conforme
+obfusware.cpp(529): warning C4409: taille d'instruction non conforme
+obfusware.cpp(532): warning C4410: taille d'opérande non conforme
+obfusware.cpp(532): warning C4409: taille d'instruction non conforme
+obfusware.cpp(535): warning C4410: taille d'opérande non conforme
+obfusware.cpp(535): warning C4409: taille d'instruction non conforme
+obfusware.cpp(538): warning C4410: taille d'opérande non conforme
+obfusware.cpp(538): warning C4409: taille d'instruction non conforme
+obfusware.cpp(541): warning C4410: taille d'opérande non conforme
+obfusware.cpp(541): warning C4409: taille d'instruction non conforme
+obfusware.cpp(544): warning C4410: taille d'opérande non conforme
+obfusware.cpp(544): warning C4409: taille d'instruction non conforme
+obfusware.cpp(603): warning C4410: taille d'opérande non conforme
+obfusware.cpp(603): warning C4409: taille d'instruction non conforme
+obfusware.cpp(606): warning C4410: taille d'opérande non conforme
+obfusware.cpp(606): warning C4409: taille d'instruction non conforme
+obfusware.cpp(609): warning C4410: taille d'opérande non conforme
+obfusware.cpp(609): warning C4409: taille d'instruction non conforme
+obfusware.cpp(612): warning C4410: taille d'opérande non conforme
+obfusware.cpp(612): warning C4409: taille d'instruction non conforme
+obfusware.cpp(615): warning C4410: taille d'opérande non conforme
+obfusware.cpp(615): warning C4409: taille d'instruction non conforme
+obfusware.cpp(618): warning C4410: taille d'opérande non conforme
+obfusware.cpp(618): warning C4409: taille d'instruction non conforme
+obfusware.cpp(696): warning C4410: taille d'opérande non conforme
+obfusware.cpp(696): warning C4409: taille d'instruction non conforme
+obfusware.cpp(699): warning C4410: taille d'opérande non conforme
+obfusware.cpp(699): warning C4409: taille d'instruction non conforme
+obfusware.cpp(702): warning C4410: taille d'opérande non conforme
+obfusware.cpp(702): warning C4409: taille d'instruction non conforme
+obfusware.cpp(705): warning C4410: taille d'opérande non conforme
+obfusware.cpp(705): warning C4409: taille d'instruction non conforme
+obfusware.cpp(708): warning C4410: taille d'opérande non conforme
+obfusware.cpp(708): warning C4409: taille d'instruction non conforme
+obfusware.cpp(711): warning C4410: taille d'opérande non conforme
+obfusware.cpp(711): warning C4409: taille d'instruction non conforme
+obfusware.cpp(772): warning C4410: taille d'opérande non conforme
+obfusware.cpp(772): warning C4409: taille d'instruction non conforme
+obfusware.cpp(775): warning C4410: taille d'opérande non conforme
+obfusware.cpp(775): warning C4409: taille d'instruction non conforme
+obfusware.cpp(778): warning C4410: taille d'opérande non conforme
+obfusware.cpp(778): warning C4409: taille d'instruction non conforme
+obfusware.cpp(781): warning C4410: taille d'opérande non conforme
+obfusware.cpp(781): warning C4409: taille d'instruction non conforme
+obfusware.cpp(784): warning C4410: taille d'opérande non conforme
+obfusware.cpp(784): warning C4409: taille d'instruction non conforme
+obfusware.cpp(787): warning C4410: taille d'opérande non conforme
+obfusware.cpp(787): warning C4409: taille d'instruction non conforme
+obfusware.cpp(841): warning C4410: taille d'opérande non conforme
+obfusware.cpp(841): warning C4409: taille d'instruction non conforme
+obfusware.cpp(844): warning C4410: taille d'opérande non conforme
+obfusware.cpp(844): warning C4409: taille d'instruction non conforme
+obfusware.cpp(847): warning C4410: taille d'opérande non conforme
+obfusware.cpp(847): warning C4409: taille d'instruction non conforme
+obfusware.cpp(850): warning C4410: taille d'opérande non conforme
+obfusware.cpp(850): warning C4409: taille d'instruction non conforme
+obfusware.cpp(853): warning C4410: taille d'opérande non conforme
+obfusware.cpp(853): warning C4409: taille d'instruction non conforme
+obfusware.cpp(856): warning C4410: taille d'opérande non conforme
+obfusware.cpp(856): warning C4409: taille d'instruction non conforme
+obfusware.cpp(1027): warning C4410: taille d'opérande non conforme
+obfusware.cpp(1027): warning C4409: taille d'instruction non conforme
+obfusware.cpp(1030): warning C4410: taille d'opérande non conforme
+obfusware.cpp(1030): warning C4409: taille d'instruction non conforme
+obfusware.cpp(1033): warning C4410: taille d'opérande non conforme
+obfusware.cpp(1033): warning C4409: taille d'instruction non conforme
+obfusware.cpp(1036): warning C4410: taille d'opérande non conforme
+obfusware.cpp(1036): warning C4409: taille d'instruction non conforme
+obfusware.cpp(1039): warning C4410: taille d'opérande non conforme
+obfusware.cpp(1039): warning C4409: taille d'instruction non conforme
+obfusware.cpp(1042): warning C4410: taille d'opérande non conforme
+obfusware.cpp(1042): warning C4409: taille d'instruction non conforme
+obfusware.cpp(1302): warning C4102: 'prgmout' : étiquette non référencée
 Link:
   C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2010\Projects\obfusware\Release\obfusware.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\obfusware.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2010\Projects\obfusware\Release\obfusware.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2010\Projects\obfusware\Release\obfusware.lib" /MACHINE:X86 Release\obfusware.obj
   Release\stdafx.obj
   Génération de code en cours
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(816): warning C4731: 'base64_decode' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(824): warning C4731: 'base64_decode' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(861): warning C4731: 'base64_decode' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(671): warning C4731: 'ccpuid' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(679): warning C4731: 'ccpuid' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(716): warning C4731: 'ccpuid' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(578): warning C4731: 'GetNumScrollLines' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(586): warning C4731: 'GetNumScrollLines' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(623): warning C4731: 'GetNumScrollLines' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(504): warning C4731: 'affiche' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(512): warning C4731: 'affiche' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(549): warning C4731: 'affiche' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(418): warning C4731: 'EnumWindowsProc' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(426): warning C4731: 'EnumWindowsProc' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(463): warning C4731: 'EnumWindowsProc' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(218): warning C4731: 'is_not_debbugging' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(226): warning C4731: 'is_not_debbugging' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(263): warning C4731: 'is_not_debbugging' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(747): warning C4731: 'isGuestOSVM' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(755): warning C4731: 'isGuestOSVM' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
+c:\documents and settings\administrateur\mes documents\visual studio 2010\projects\obfusware\obfusware\obfusware.cpp(792): warning C4731: 'isGuestOSVM' : registre de pointeur frame 'ebp' modifié par le code assembleur inline
   Fin de la génération du code
   obfusware.vcxproj -> C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2010\Projects\obfusware\Release\obfusware.exe
 Manifest:
@@ -22,4 +139,4 @@ Génération du projet "C:\Documents and Settings\Administrateur\Mes documents\V
 
 La génération a réussi.
 
-Temps écoulé 00:00:02.26
+Temps écoulé 00:00:02.64
